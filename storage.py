@@ -15,8 +15,12 @@ class Storage:
     def remove(self):
         pass
 
-    def set(self):
-        pass
-    
+    def set(self, key, value):
+        if key in self.data:
+            self.data[key] = value
+            return 0 #success
+        else:
+            return 1 #error
+
     def add(self):
         pass
