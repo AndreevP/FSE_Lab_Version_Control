@@ -18,8 +18,13 @@ class Storage:
         else:
             raise Exception(f"Key {key} don't exist")
 
-    def set(self):
-        pass
+
+    def set(self, key, value):
+        if key in self.data:
+            self.data[key] = value
+            return 0 #success
+        else:
+            return 1 #error
 
 
     def add(self, key, value):
@@ -27,4 +32,5 @@ class Storage:
             self.data[key] = value
         else:
             raise Exception(f"Key {key} already exists")
+
 
