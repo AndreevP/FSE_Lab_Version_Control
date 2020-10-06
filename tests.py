@@ -13,7 +13,20 @@ def test_add():
         pass
 
 def test_remove():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    key = 'b'
+    st.remove(key)
+    try:
+        st.get('key')
+        assert "<key, value> pair not removed"
+    except Exception as e:
+        pass
+    key = 'c'
+    try:
+        st.remove(key)
+        assert False
+    except Exception as e:
+        pass
 
 def test_set():
     pass
