@@ -1,10 +1,32 @@
 from storage import Storage
 
 def test_add():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    new_key = 'c'
+    new_value = 3
+    st.add(new_key, new_value)
+    assert ('c' in st.data) and (st.data['c'] == 3)
+    try:
+        st.add(new_key, new_value)
+        assert False # make sure exception raises
+    except Exception as e:
+        pass
 
 def test_remove():
-    pass
+    st = Storage({'a': 1, 'b': 2})
+    key = 'b'
+    st.remove(key)
+    try:
+        st.get('key')
+        assert "<key, value> pair not removed"
+    except Exception as e:
+        pass
+    key = 'c'
+    try:
+        st.remove(key)
+        assert False
+    except Exception as e:
+        pass
 
 def test_set():
     st = Storage({'a': 1})
